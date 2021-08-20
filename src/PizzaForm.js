@@ -33,7 +33,7 @@ export default function PizzaForm(props){
         <div className='form-inputs'>
          <label htmlFor='nameInput'>
              <input
-                id='nameInput'
+                id='name-input'
                 value={values.name}
                 name='name'
                 type='text'
@@ -42,7 +42,7 @@ export default function PizzaForm(props){
          </label>
          <label htmlFor='selectSize'>
             <select
-                id='sizeSelect'
+                id='size-dropdown'
                 value={values.size}
                 name='size'
                 type='text'
@@ -159,7 +159,7 @@ export default function PizzaForm(props){
          </label>
          <label htmlFor='specialInstructions'>Special Instructions
             <input
-                id='specialInstructions'
+                id='special-text'
                 value={values.special}
                 onChange={onChange}
                 name='special'
