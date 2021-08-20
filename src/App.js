@@ -5,6 +5,14 @@ import Home from './Home'
 import schema from './validation/formSchema'
 import { reach } from 'yup'
 import axios from "axios";
+import styled from 'styled-components'
+
+const StyledApp = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 10%;
+`
 
 const initialFormValues = {
   name: '',
@@ -92,8 +100,10 @@ const App = () => {
 
   return (
     <>
+    <StyledApp>
      <h1>Lambda Eats</h1> 
       <Link to='/'>Home</Link>
+    </StyledApp>
       <Switch>
         <Route path='/pizza'>
           <PizzaForm 

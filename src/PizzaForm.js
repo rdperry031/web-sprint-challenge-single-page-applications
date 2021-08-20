@@ -1,4 +1,24 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const StyledHeading = styled.h1`
+    text-align: center;
+    `
+// const StyledName = styled.label`
+//     text-align: center;
+// `
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+`
+
+const StyledToppings = styled.div`
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 10% 10%;
+    `
 
 export default function PizzaForm(props){
     const {
@@ -8,7 +28,7 @@ export default function PizzaForm(props){
         disabled,
         errors,
     } = props
-
+    
     const onSubmit = evt => {
         evt.preventDefault()
         submit()
@@ -22,16 +42,10 @@ export default function PizzaForm(props){
     
     
     return(
-     <form id='pizza-form' onSubmit={onSubmit}>
-         <div className='form-submit'>
-             <h2>Build Your Own Pizza</h2>
-             <button id='order-button' disabled={disabled}>Place Order</button>
-             <div className='errors'>
-                 <div>{errors.name}</div>
-             </div>
-         </div>
+        <StyledForm id='pizza-form' onSubmit={onSubmit}>
+            <StyledHeading>Build Your Own Pizza</StyledHeading>
         <div className='form-inputs'>
-         <label htmlFor='nameInput'>
+         <label htmlFor='nameInput'>Name:
              <input
                 id='name-input'
                 value={values.name}
@@ -58,6 +72,7 @@ export default function PizzaForm(props){
             </select>
 
          </label>   
+        <StyledToppings>
          <label htmlFor='pepperoni'>Pepperoni
             <input
                 id='pepperoni'
@@ -157,6 +172,7 @@ export default function PizzaForm(props){
                 checked={values.mushrooms}
             />
          </label>
+        </StyledToppings>
          <label htmlFor='specialInstructions'>Special Instructions
             <input
                 id='special-text'
@@ -167,6 +183,12 @@ export default function PizzaForm(props){
             />
          </label>
         </div>
-     </form>   
+         <div className='form-submit'>
+             <button id='order-button' disabled={disabled}>Place Order</button>
+             <div className='errors'>
+                 <div>{errors.name}</div>
+             </div>
+         </div>
+     </StyledForm>   
     )
 }
